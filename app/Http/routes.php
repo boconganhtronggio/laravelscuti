@@ -27,4 +27,14 @@ Route::get('call-view', function(){
 	$monhoc = "lập trình Laravel cơ bản";
 	return view('view', compact('monhoc'));
 });
+/*Route::get('test',function (){
+	return view('admin.cate.add');
+});*/
+Route::group(['prefix'=>'admin'], function(){
+	Route::group(['prefix'=>'cate'], function(){
+		Route::get('list',['as'=>'admin.cate.list','uses'=>'CateController@getList']);
+		Route::get('add',['as'=>'admin.cate.getAdd','uses'=>'CateController@getAdd']);
+		Route::post('add',['as'=>'admin.cate.getAdd','uses'=>'CateController@postAdd']);
+	});
+});
 
