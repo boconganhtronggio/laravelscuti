@@ -17,8 +17,7 @@
         <div class="form-group">
             <label>Category Parent</label>
             <select class="form-control">
-                <option value="0">Please Choose Category</option>
-                
+                <option value="0">Please Choose Category</option>  
                @foreach($parent as $item)
                <option value="">{!! $item['name'] !!}</option>
                @endforeach()
@@ -40,15 +39,15 @@
             <label>Category Description</label>
             <textarea class="form-control" rows="3" name="txtdescription"></textarea>
         </div>
-        <div class="form-group">
-            <label>Category Status</label>
-            <label class="radio-inline">
-                <input name="rdoStatus" value="1" checked="" type="radio">Visible
-            </label>
-            <label class="radio-inline">
-                <input name="rdoStatus" value="2" type="radio">Invisible
-            </label>
-        </div>
+       <!--  <div class="form-group">
+           <label>Category Status</label>
+           <label class="radio-inline">
+               <input name="rdoStatus" value="1" checked="" type="radio">Visible
+           </label>
+           <label class="radio-inline">
+               <input name="rdoStatus" value="2" type="radio">Invisible
+           </label>
+       </div> -->
         <button type="submit" class="btn btn-default">Category Add</button>
         <button type="reset" class="btn btn-default">Reset</button>
     <form>

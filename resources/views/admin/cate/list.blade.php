@@ -2,34 +2,56 @@
 @section('controller','Category')
 @section('action','list')
 @section('content')
+<div class="col-lg-7" style="padding-bottom:20px">
+    @if (count($errors)>0)
+        <div class="alert alert-danger" >
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{!! $error !!}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+</div>
 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
     <thead>
         <tr align="center">
             <th>ID</th>
             <th>Name</th>
             <th>Category Parent</th>
-            <th>Status</th>
             <th>Delete</th>
             <th>Edit</th>
         </tr>
     </thead>
     <tbody>
+        <?php $stt = 0 ?>
+        @foreach ($data as $item)
+        <?php $stt = $stt+1 ?>
         <tr class="odd gradeX" align="center">
-            <td>1</td>
-            <td>Tin Tức</td>
-            <td>None</td>
-            <td>Hiện</td>
-            <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="#"> Delete</a></td>
-            <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="#">Edit</a></td>
+            <td>{!! $stt !!}</td>
+            <td>{!! $item["name"] !!}</td>
+            <td>
+              {!! $item["parent_id"] !!}
+            </td>
+            <td class="center"><i class="fa fa-trash-o  fa-fw"></i>
+                <form action="{!! route('admin.cate.getdelete', $item['id']) !!}" method="POST">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <button type="submit">Delete</button>
+                    <!-- <a href="{!! URL::route('admin.cate.getdelete', $item['id']) !!}"> Delete</a> 
+                        {!! URL::route('admin.cate.getedit', $item['id']) !!}
+                -->
+                </form>
+            </td>
+            <td class="center"><i class="fa fa-trash-o  fa-fw"></i>
+                <form action="{!! URL::route('admin.cate.getedit', $item['id']) !!}" method="POST">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <button type="submit">Edit</button>
+                </form>
+            </td>
         </tr>
-        <tr class="even gradeC" align="center">
-            <td>2</td>
-            <td>Bóng Đá</td>
-            <td>Thể Thao</td>
-            <td>Ẩn</td>
-            <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="#"> Delete</a></td>
-            <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="#">Edit</a></td>
-        </tr>
+        @endforeach
     </tbody>
 </table>
 @endsection() 
