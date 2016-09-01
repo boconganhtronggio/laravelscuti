@@ -35,6 +35,28 @@ Route::group(['prefix'=>'admin'], function(){
 		Route::get('list',['as'=>'admin.cate.list','uses'=>'CateController@getList']);
 		Route::get('add',['as'=>'admin.cate.getAdd','uses'=>'CateController@getAdd']);
 		Route::post('add',['as'=>'admin.cate.getAdd','uses'=>'CateController@postAdd']);
+		Route::delete('delete/{id}',['as'=>'admin.cate.getdelete','uses'=>'CateController@getdelete']);
+		Route::get('edit',['as'=>'admin.cate.getedit','uses'=>'CateController@getedit']);
+		Route::post('edit/{id}',['as'=>'admin.cate.postedit','uses'=>'CateController@postedit']);
+		
 	});
 });
+Route::group(['prefix'=>'admin'], function(){
+	Route::group(['prefix'=>'user'], function(){
+		/*Route::get('list',['as'=>'admin.user.list','uses'=>'UserController@getList']);*/
+		Route::get('register',['as'=>'admin.user.register','uses'=>'UserController@getAdd']);
+		Route::get('login',['as'=>'admin.user.login','uses'=>'UserController@getLogin']);
+		Route::post('login',['as'=>'postLogin','uses'=>'UserController@postLogin']);
+		Route::post('register',['as'=>'getregister','uses'=>'UserController@postregister']);
+		/*Route::get('list',['as'=>'getList','uses'=>'CateController@getList']);*/
+		Route::get('logout', array('uses' => 'UserController@doLogout'));
+	});
+});
+Route::post('login', function () {
+        if (Auth::attempt($user)) {
+            return Redirect::route('home')
+                ->with('flash_notice', 'You are successfully logged in.');
+        }
+});
+
 

@@ -9,22 +9,22 @@
     <title>Admin - Khoa Phạm</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url('public/admin/bower_components/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- MetisMenu CSS -->
-    <link href="bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+    <link href="{{ url('public/admin/bower_components/metisMenu/dist/metisMenu.min.css') }}" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="dist/css/sb-admin-2.css" rel="stylesheet">
+    <link href="{{ url('public/admin/dist/css/sb-admin-2.css') }}" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="{{ url('public/admin/bower_components/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
 
     <!-- DataTables CSS -->
-    <link href="bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="{{ url('public/admin/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css') }}" rel="stylesheet">
 
     <!-- DataTables Responsive CSS -->
-    <link href="bower_components/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">
+    <link href="{{ url('public/admin/bower_components/datatables-responsive/css/dataTables.responsive.css') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -40,7 +40,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Admin Area - Khoa Phạm</a>
+                <a class="navbar-brand" href="index.html">Laravel</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -130,28 +130,36 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">User
-                            <small>Add</small>
+                        <h1 class="page-header">Register
+                            <!-- <small>Add</small> -->
                         </h1>
                     </div>
                     <!-- /.col-lg-12 -->
                     <div class="col-lg-7" style="padding-bottom:120px">
-                        <form action="" method="POST">
+                       @if (count($errors) > 0)
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+     
+                        <form action="{!! route('getregister') !!}" method="POST">
+                             <input type="hidden" name="_method" value="POST">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <div class="form-group">
                                 <label>Username</label>
-                                <input class="form-control" name="txtUser" placeholder="Please Enter Username" />
+                                <input class="form-control" name="txtUser" placeholder="Username" />
                             </div>
                             <div class="form-group">
                                 <label>Password</label>
-                                <input type="password" class="form-control" name="txtPass" placeholder="Please Enter Password" />
-                            </div>
-                            <div class="form-group">
-                                <label>RePassword</label>
-                                <input type="password" class="form-control" name="txtRePass" placeholder="Please Enter RePassword" />
+                                <input type="password" class="form-control" name="txtPass" placeholder=" Password" />
                             </div>
                             <div class="form-group">
                                 <label>Email</label>
-                                <input type="email" class="form-control" name="txtEmail" placeholder="Please Enter Email" />
+                                <input type="email" class="form-control" name="txtEmail" placeholder="Email" />
                             </div>
                             <div class="form-group">
                                 <label>User Level</label>
@@ -162,7 +170,7 @@
                                     <input name="rdoLevel" value="2" type="radio">Member
                                 </label>
                             </div>
-                            <button type="submit" class="btn btn-default">User Add</button>
+                            <button type="submit" class="btn btn-default">Add</button>
                             <button type="reset" class="btn btn-default">Reset</button>
                         <form>
                     </div>
@@ -177,20 +185,20 @@
     <!-- /#wrapper -->
 
     <!-- jQuery -->
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="{{ url('public/admin/bower_components/jquery/dist/jquery.min.js') }}"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="{{ url('public/admin/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 
     <!-- Metis Menu Plugin JavaScript -->
-    <script src="bower_components/metisMenu/dist/metisMenu.min.js"></script>
+    <script src="{{ url('public/admin/bower_components/metisMenu/dist/metisMenu.min.js') }}"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="dist/js/sb-admin-2.js"></script>
+    <script src="{{ url('public/admin/dist/js/sb-admin-2.js') }}"></script>
 
     <!-- DataTables JavaScript -->
-    <script src="bower_components/DataTables/media/js/jquery.dataTables.min.js"></script>
-    <script src="bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+    <script src="{{ url('public/admin/bower_components/DataTables/media/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ url('public/admin/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js') }}"></script>
 
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
     <script>

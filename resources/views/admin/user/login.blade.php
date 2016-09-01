@@ -1,4 +1,6 @@
-@extends('app')
+@extends('admin.master')
+@section('controller','Login')
+@section('action')
 @section('content')
 <div class="container-fluid">
 	<div class="row">
@@ -17,20 +19,20 @@
 						</div>
 					@endif
 
-					<form class="form-horizontal" role="form" method="POST" action="{{ url('/auth/login') }}">
+					<form class="form-horizontal" role="form" method="POST" action="{!! route('postLogin') !!}">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 						<div class="form-group">
-							<label class="col-md-4 control-label">E-Mail Address</label>
+							<label class="col-md-4 control-label">username</label>
 							<div class="col-md-6">
-								<input type="email" class="form-control" name="email" value="{{ old('email') }}">
+								<input type="text" class="form-control" name="username" value="{{ old('username') }}">
 							</div>
 						</div>
 
 						<div class="form-group">
 							<label class="col-md-4 control-label">Password</label>
 							<div class="col-md-6">
-								<input type="password" class="form-control" name="password">
+								<input type="password" class="form-control" name="password" value="{{ old('password') }}">
 							</div>
 						</div>
 
