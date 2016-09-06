@@ -28,6 +28,7 @@
         @foreach ($data as $item)
         <?php $stt = $stt+1 ?>
         <tr class="odd gradeX" align="center">
+            <td>{!! $item["id"] !!}</td>
             <td>{!! $stt !!}</td>
             <td>{!! $item["name"] !!}</td>
             <td>
@@ -43,13 +44,11 @@
                 -->
                 </form>
             </td>
-            <td class="center"><i class="fa fa-trash-o  fa-fw"></i>
-                <form action="{!! URL::route('admin.cate.getedit', $item['id']) !!}" method="POST">
-                    <input type="hidden" name="_method" value="DELETE">
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <button type="submit">Edit</button>
-                </form>
-            </td>
+           <td class="center"><i class="fa fa-trash-o  fa-fw"></i>
+               <form action="{!! route('admin.cate.getedit', $item['id']) !!}" method="GET">
+                   <button type="submit">Edit</button>
+               </form>
+           </td> 
         </tr>
         @endforeach
     </tbody>

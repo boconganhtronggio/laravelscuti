@@ -2,7 +2,6 @@
 use Auth;
 use App\Http\Requests;
 use App\Http\Controllers\UserController;
-/*use Validator;*/
 use Illuminate\Http\Request;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\Registrar;
@@ -43,7 +42,15 @@ class UserController extends Controller {
 		$password=$request['password'];
 			if (Auth::attempt(['username' => $user, 'password' => $password]))
 		    {
-		        return redirect()->route('admin.cate.list')->with(['flash_level'=>'succses','flash_message'=>'đăng nhập thành công']);
+
+
+		    	if(Auth::user()->level >1){
+		    		return view('welcome');
+		    	}
+		    	else{	   	
+		    		return redirect()->action('CateController@getList')->with(['flash_level'=>'succses','flash_message'=>'đăng nhập thành công']);
+		        //return view('admin.cate.add');
+		    	}
 		    }
 
 		    	return redirect()->back()->with(['flash_level'=>'dangerous','flash_message'=>'chưa được']);
@@ -60,7 +67,7 @@ class UserController extends Controller {
 			$user->email=$email;
 			$user->level=$lv;
 			if($user->save()){
-				return redirect()->route('admin.user.login')->with(['flash_level'=>'succses','flash_message'=>'bạn đã thêm thành công']);
+				return redirect()->route('admin.user.login')->with(['flash_level'=>'succses','flash_message'=>'bạn đã đăng ký thành công']);
 			}
 			else{
 				return redirect()->back()->with(['flash_level'=>'dangerous','flash_message'=>'chưa được']);
@@ -69,7 +76,7 @@ class UserController extends Controller {
 public function doLogout()
 {
     Auth::logout(); // log the user out of our application
-    return Redirect('admin/user/register'); // redirect the user to the login screen
+    return Redirect('admin/user/login'); // redirect the user to the login screen
 }
 	/*ublic function getList() {
 		return view('admin.cate.list');

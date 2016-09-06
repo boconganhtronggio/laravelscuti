@@ -39,14 +39,26 @@ class CateController extends Controller {
 		return redirect()->back();
 	}
 
-	public function getedit ($id)
-	{
-		$data = cate::tofind($id)->toArray();
-		return view ('admin.cate.edit',compact('parent','data','id'));
+	public function getedit($id)
+	{		
+		$data = cate::find($id);
+		$parent = cate::select('id', 'name', 'parent_id')->get()->toArray();
+		return view('admin.cate.edit',compact('parent','data','id'));
 	}
-	public function postedit(){
-
-	}
+	public function postedit($id, Request $request){
+		$this ->validate($request,
+				["txtCateName"=>"required"],
+				["txtCateName.required"=>"please Enter Category Name"]
+			);
+		$cate = cate::find($id);
+		$cate->name = $request->txtCateName;
+		$cate->alias= $request->txtCateName;
+		$cate->order= $request->txtOrder;
+		$cate->parent_id =5;
+		$cate->keywords= $request->txtKeywords;
+		$cate->description= $request->txtdescription;
+		$cate->save();
+		return redirect()->route('admin.cate.list')->with(['flash_level'=>'thành công','flash_message'=>'bạn đã sửa thành công']);
 	
-
+	}
 }

@@ -4,10 +4,7 @@ html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
-body {
-  margin: 0;
-  background-image:url('http://ngoisaonet.info/wp-content/uploads/2014/09/hinh-nen-nhung-chiet-xe-dap-thoi-hoc-sinh-nhiu-ky-uc-2.jpg'); 
-}
+
 .modal-header, h4, .close {
       background-color: #5cb85c;
       color:white !important;

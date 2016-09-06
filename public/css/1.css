@@ -1,0 +1,203 @@
+*{margin:0;padding:0; }
+
+.navbar-right{
+	float: left;
+	
+}
+.navbar-default{
+    height: 130px;
+    padding-top: 34px;
+}
+.number{
+	background: #dd2727;
+    /*width: 18px;*/
+    height: 18px;
+    color: #fff;
+    font-size: 11px;
+    border-radius: 100%;
+    position: absolute;
+    top: -8px;
+    right: 2px;
+    display: block;
+    padding-top: 2px;
+    box-sizing: border-box;
+}
+.navbar-right li{
+	margin: 20px;
+}
+.fa{
+	display: inline-block;
+    font: normal normal normal;
+}
+.fa-phone{
+	padding-left: 60px;
+}
+.call-phone b{
+	color: red;
+}
+.call-phone{
+	font-size: 13px;
+    color: #aaa;
+}
+.call-phone .fa-phone{
+	color: #000;
+}
+.navbar-right a{
+	text-decoration: none;
+    outline: 1px;
+    padding: 20px 0 0;
+    font-size: 13px;
+    color: #b8b8b8;
+}
+.collapse form{
+	display: block;
+	
+}
+.collapse form .form-group input{
+	/*width: 350px;*/
+	height: 43px;
+}
+.collapse form .form-group .form-control{
+	
+    border: 1px solid #dbdbdb;
+    color: #aeaeae;
+    font-size: 15px;
+    font-style: italic;
+    font-weight: 400;
+    padding: 12px 80px 12px 10px;
+    box-sizing: border-box;
+}
+.btn-default{
+    background: #d41212;
+    height: 43px;
+    /*width: 70px;*/
+    top: 0;
+    right: 0;
+}
+.btn-default .glyphicon-search{
+	font-size: 26px;
+    color: #fff;
+}
+.navbar-right .fa-user{
+	padding-left: 20px;
+}
+.navbar-right .fa-shopping-cart{
+	font-size: 20px;
+	padding-left: 20px;
+}
+.name-dt span a{
+	position: absolute;
+    left: 25px;
+    top: 65%;
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 30px;
+}
+.name-dt img{
+	border: 0;
+    font-size: 0;
+    line-height: 0;
+    /*max-width: 100%;*/
+}
+.name-dt a{
+	text-decoration: none;
+}
+.name-dt span{
+	font-size: 20px;
+	color: white;
+	padding-top: 40px;
+	padding-right: 85px;
+}
+.gach-ngang{
+	padding-top: 20px;
+}
+.gach-ngang .gach-ngang-1 {
+	height: 10px;
+}
+.anhnen img{
+	/*width: 100%;*/
+}
+.benphai{
+	/*width: 200px;*/
+	float: right;
+}
+.sanpham1 .anh1{
+	 border: 1px solid #dcdcdc;
+    
+}
+.sanpham1{
+	padding-top: 40px;
+	margin-top: 20px;
+}
+.layer-discount {
+    /*width: 43px;*/
+    height: 31px;
+    background: url("http://st.f3.shop.vnecdn.net/c/v18/images/graphics/sprite_img.png") no-repeat -36px 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+    padding-top: 5px;
+    padding-left: 5px;
+    box-sizing: border-box;
+    z-index: 9;
+}
+.anh1{
+	    border-left: 1px solid #dcdcdc;
+    border-bottom: 1px solid #dcdcdc;
+    height: 280px;
+    float: left;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    position: relative;
+}
+.anh1 .price{
+	font-size: 18px;
+    color: rgb(212, 18, 18);
+    font-weight: 700;
+    margin-bottom: 2px;
+}
+.div-sanpham1{
+	float: left;
+}
+.anh2{
+	padding-left: 100px;
+}
+.anh1-trong{
+	padding-top: 100px;
+}
+.price-true{
+	    font-size: 11px;
+    margin-bottom: 15px;
+}
+.anh1 .name{
+	font-size: 14px;
+    color: rgb(0, 0, 0);
+    font-weight: 400;
+    margin-bottom: 7px;
+    display: block;
+    line-height: 20px;
+}
+.anh1-trong .anh-trong1 .name{
+	font-size: 14px;
+    color: rgb(0, 0, 0);
+    font-weight: 400;
+    margin-bottom: 7px;
+    display: block;
+    line-height: 20px;
+}
+.nenanh3{
+    padding-top: 122px;
+	padding-left: 10px;
+}   
+.footer{
+	text-align: center;
+	color: #000;
+    padding-top: 51px;
+    font-size: 20px;
+}
